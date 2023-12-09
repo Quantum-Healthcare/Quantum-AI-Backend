@@ -1,6 +1,5 @@
 package io.github.georgeuwagbale.qauntumai_backend.auth;
 
-import com.mongodb.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
