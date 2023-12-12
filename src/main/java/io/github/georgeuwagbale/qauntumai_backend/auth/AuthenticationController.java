@@ -1,5 +1,9 @@
 package io.github.georgeuwagbale.qauntumai_backend.auth;
 
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.AuthenticationRequest;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.AuthenticationResponse;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationRequest;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

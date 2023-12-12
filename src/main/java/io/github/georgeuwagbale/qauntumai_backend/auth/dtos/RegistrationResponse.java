@@ -1,4 +1,4 @@
-package io.github.georgeuwagbale.qauntumai_backend.auth;
+package io.github.georgeuwagbale.qauntumai_backend.auth.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

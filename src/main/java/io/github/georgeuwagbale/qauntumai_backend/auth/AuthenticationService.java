@@ -1,5 +1,9 @@
 package io.github.georgeuwagbale.qauntumai_backend.auth;
 
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.AuthenticationRequest;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.AuthenticationResponse;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationRequest;
+import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationResponse;
 import io.github.georgeuwagbale.qauntumai_backend.config.JwtService;
 import io.github.georgeuwagbale.qauntumai_backend.user.LoginStatus;
 import io.github.georgeuwagbale.qauntumai_backend.user.Role;
