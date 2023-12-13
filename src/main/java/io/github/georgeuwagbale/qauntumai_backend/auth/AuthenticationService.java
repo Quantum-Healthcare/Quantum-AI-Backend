@@ -5,6 +5,9 @@ import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.AuthenticationRespon
 import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationRequest;
 import io.github.georgeuwagbale.qauntumai_backend.auth.dtos.RegistrationResponse;
 import io.github.georgeuwagbale.qauntumai_backend.config.JwtService;
+import io.github.georgeuwagbale.qauntumai_backend.subscription.SubscriptionDTO;
+import io.github.georgeuwagbale.qauntumai_backend.subscription.SubscriptionService;
+import io.github.georgeuwagbale.qauntumai_backend.subscription.SubscriptionType;
 import io.github.georgeuwagbale.qauntumai_backend.user.LoginStatus;
 import io.github.georgeuwagbale.qauntumai_backend.user.Role;
 import io.github.georgeuwagbale.qauntumai_backend.user.User;
@@ -23,6 +26,7 @@ public class AuthenticationService {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final SubscriptionService subscriptionService;
 
     public AuthenticationResponse login(AuthenticationRequest request){
         authenticationManager.authenticate(
@@ -43,18 +47,26 @@ public class AuthenticationService {
     }
 
     public RegistrationResponse register(RegistrationRequest request){
-        userService.createUser(
-                User.builder()
-                        .firstName(request.getFirstName())
-                        .lastName(request.getLastName())
-                        .email(request.getEmail())
-                        .password(passwordEncoder.encode(request.getPassword()))
-                        .role(Role.USER)
-                        .loginStatus(LoginStatus.LOGGED_OUT)
-                        .accountNonExpired(true)
-                        .accountNonLocked(true)
-                        .credentialsNonExpired(true)
-                        .enabled(true)
+
+        subscriptionService.createSubscription(
+                SubscriptionDTO.builder()
+                        .userId(
+                                userService.createUser(
+                                        User.builder()
+                                                .firstName(request.getFirstName())
+                                                .lastName(request.getLastName())
+                                                .email(request.getEmail())
+                                                .password(passwordEncoder.encode(request.getPassword()))
+                                                .role(Role.USER)
+                                                .loginStatus(LoginStatus.LOGGED_OUT)
+                                                .accountNonExpired(true)
+                                                .accountNonLocked(true)
+                                                .credentialsNonExpired(true)
+                                                .enabled(true)
+                                                .build()
+                                ).getId()
+                        )
+                        .type(SubscriptionType.FREE)
                         .build()
         );
 

@@ -33,6 +33,7 @@ public class UserService {
         if (!user.getLastName().isEmpty()){
             userToUpdate.setLastName(user.getLastName());
         }
+        userToUpdate.setLoginStatus(user.getLoginStatus());
         return userRepository.save(userToUpdate);
     }
 
