@@ -1,12 +1,13 @@
 spring:
   data:
     mongodb:
-      username: root
-      password: realghost16
-      host: localhost
-      port: 27017
-      database: quantum_ai
+#      username: root
+#      password: realghost16
+#      host: localhost
+#      port: 27017
+      database: apoowo
       authentication-database: admin
+      uri: mongodb+srv://user:realghost16@apoowo.oglndqm.mongodb.net/?retryWrites=true&w=majority
 
 
 application:
